@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>华雅国际</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width"/>
+<link href="css/style.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/slides.js"></script>
+<script type="text/javascript" src="js/pager.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="js/ie6png.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix('div,img,.body,span,h1');
+</script>
+<style>
+    .g-sd31 {position:absolute;}
+    body {background:#000;}
+</style>
+<![endif]-->
+<script>
+  $(function(){
+//    $("#slides").slidesjs({
+//		width:660,
+//		height:230,
+//		play: {
+//          active: true,
+//          auto: true,
+//          interval: 4000,
+//		  swap: true,
+//          pauseOnHover: true,
+//          restartDelay: 2500
+//        }
+//	}
+//	);
+	$('.g-sd32').css({'opacity':0,'display':'block'});
+	$('#section_home').css({'opacity':1,'display':'block'});
+	
+	var $nav_links = $('.m-list li a');
+	$nav_links.click(function(){
+		$nav_links.removeClass('active');
+		$(this).addClass('active');
+	});	
+	
+	$('#nav_mission').click(function(e){
+		e.preventDefault();
+		var left = $('#section_mission').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_mission').animate({'opacity':0});
+		$('#section_mission').animate({'opacity':1});
+	});
+	
+	$('#nav_about').click(function(e){
+		e.preventDefault();
+		var left = $('#section_about').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_about').animate({'opacity':0});
+		$('#section_about').animate({'opacity':1});
+	});
+	
+	$('#nav_home').click(function(e){
+		e.preventDefault();
+		var left = $('#section_home').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_home').animate({'opacity':0});
+		$('#section_home').animate({'opacity':1});
+	});
+	
+	$('#nav_team').click(function(e){
+		e.preventDefault();
+		var left = $('#section_team').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_team').animate({'opacity':0});
+		$('#section_team').animate({'opacity':1});
+	});
+	
+	$('#nav_news').click(function(e){
+		e.preventDefault();
+		var left = $('#section_news').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_news').animate({'opacity':0});
+		$('#section_news').animate({'opacity':1});
+	});
+	
+	$('#nav_publications').click(function(e){
+		e.preventDefault();
+		var left = $('#section_publictions').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_publictions').animate({'opacity':0});
+		$('#section_publictions').animate({'opacity':1});
+	});
+	
+	$('#nav_luxury').click(function(e){
+		e.preventDefault();
+		var left = $('#section_luxury').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_luxury').animate({'opacity':0});
+		$('#section_luxury').animate({'opacity':1});
+	});
+	
+	$('#nav_contact').click(function(e){
+		e.preventDefault();
+		var left = $('#section_contact').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_contact').animate({'opacity':0});
+		$('#section_contact').animate({'opacity':1});
+	});
+	
+	$('#nav_links').click(function(e){
+		e.preventDefault();
+		var left = $('#section_links').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_links').animate({'opacity':0});
+		$('#section_links').animate({'opacity':1});
+	});
+	
+	$('#nav_book').click(function(e){
+		e.preventDefault();
+		var left = $('#section_book').position().left;
+		$('.g-sd32_wrap').animate({'margin-left':-left});
+		$('.g-sd32').not('#section_book').animate({'opacity':0});
+		$('#section_book').animate({'opacity':1});
+	});
+
+    $('.pager-content').pager({
+        pageWrap      :   '.m-list5-wrap',
+        pageClass     :   '.m-list5-inner',
+        pagingClass   :   '.tan-page',
+        pagingNumber   :   '.tan-page-num'
+    });
+
+
+    //login
+    $('#contact_form').ajaxForm({
+        beforeSubmit:  function(){
+            return $("#contact_form").valid();
+        },
+        complete: function(xhr) {
+           res = JSON.parse(xhr.responseText)
+           if(res.success == '1')
+           {
+               $('#contact_form').fadeOut(400);
+               $('#form-success').delay(400).fadeIn(400);
+           }
+        }
+    });
+
+    $("#contact_form").validate(
+    {
+      submitHandler: function(form){
+          $(form).find('.formitm button').fadeOut(400);
+          $(form).find('.formitm span').delay(400).fadeIn(400);
+      },
+      rules: {
+          name: { required: true },
+          email: { required: true, email: true },
+          message: { required: true }
+      },
+      messages: {
+          name: '请留下姓名',
+          email: {required:'请留下电子邮箱', email: '请填写正确的邮箱'},
+          message:   '请输入留言'
+      }
+    });
+  });
+</script> 
+</head>
+<body class="body">
+
+    <div class="g-bd3 f-cb bg-all">
+        <div class="g-sd31">
+            <div><a href="" class="logo">HuaYa International华雅国际</a></div>
+            <ul class="m-list">
+                <li><a href="#home" class="active" id="nav_home"><span>首页</span></a></li>
+                <li><a href="#about" id="nav_about"><span>关于我们</span></a>
+                	<ul>
+                    	<li><a href="#mission" id="nav_mission"><span>我们的任务</span></a></li>
+                    	<li><a href="#publications" id="nav_publications"><span>我们的出版物</span></a></li>
+                    	<li><a href="#book" id="nav_book"><span>新书</span></a></li>
+                    	<li><a href="#luxury" id="nav_luxury"><span>奢华年代</span></a></li>
+                    	<li><a href="#team" id="nav_team"><span>我们的团队</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#news" id="nav_news"><span>新闻</span></a></li>
+                <li><a href="#contact" id="nav_contact"><span>联系我们</span></a></li>
+                <li><a href="#links" id="nav_links"><span>链接</span></a></li>
+            </ul>
+    
+        </div>
+        <div class="g-sd32_box">
+            <div class="g-sd32_wrap">
+                <div class="g-sd32" id="section_home">
+                    <div class="cen-box">
+                        <div class="">
+                            <div class="m-list3">                	
+                                <div class="f-cb m-list3-box" id="slides">
+                                    <div class="m-list3-list">
+                                        <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                        <div class="txt">
+                                            <h3>19世纪的欧洲家具珍藏图鉴</h3>
+                                            <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                        </div>
+                                    </div>
+                                    <!--div class="m-list3-list">
+                                        <div class="u-img2"><a href="#"><img src="img/1.png" alt="" /></a></div>
+                                        <div class="txt">
+                                            <h3><a href="#">New book name Title2</a></h3>
+                                            <p>Lorem ipsum dolor sit amet, vis voluptatum posidonium in, id pri alii iriure voluptaria, mel nibh facer omittam ne. Ex partem virtute vix, te numquam legimus apeirian cum. Sed at ullum vivendo praesent. Quo ei dicat dictas voluptatum. Ea duo rebum fuisset splendide. Ea vim diceret verterem postulant, nobis impetus cu mei, quo ei recteque postulant. Graeco quodsi cum no.</p>
+                                        </div>
+                                    </div>
+                                    <div class="m-list3-list">
+                                        <div class="u-img2"><a href="#"><img src="img/1.png" alt="" /></a></div>
+                                        <div class="txt">
+                                            <h3><a href="#">New book name Title3</a></h3>
+                                            <p>Lorem ipsum dolor sit amet, vis voluptatum posidonium in, id pri alii iriure voluptaria, mel nibh facer omittam ne. Ex partem virtute vix, te numquam legimus apeirian cum. Sed at ullum vivendo praesent. Quo ei dicat dictas voluptatum. Ea duo rebum fuisset splendide. Ea vim diceret verterem postulant, nobis impetus cu mei, quo ei recteque postulant. Graeco quodsi cum no.</p>
+                                        </div>
+                                    </div-->
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <div>
+                            <div class="m-list5">
+                                <ul>
+                                    <li>
+                                        <div class="m-tit">
+                                            <span class="m-time">May the 12th</span>
+                                            <h4>《19世纪的欧洲家具珍藏图鉴》中文版的面世</h4>
+                                        </div>
+                                        <p class="m-txt">本书的参考价值</p>
+                                    </li>
+                                    <li>
+                                        <div class="m-tit">
+                                            <span class="m-time">May the 12th</span>
+                                            <h4>“传承与永恒”将在（暂定）2013年6月8日于北京举行</h4>
+                                        </div>
+                                        <p class="m-txt">“传承与永恒”将在（暂定）2013年6月8日于北京举行。展览包括展出150件来自19世纪欧洲精美的装饰艺术品，连同郭培华丽的时装设计。由郭培亲自设计和布展，这将是一个激动人心的体验。举办一个历史文化活动，在中国发布由克里斯托弗·佩恩撰写的专著——《《19世纪的欧洲家具珍藏图鉴》中文版 (请参阅单独介绍作者克里斯托弗·佩恩的详细信息)，在中国这是第一本关于这类题材的权威出版物。 </p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <!--div class="tan-page">
+                                <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                <a href="#" class="tan-page-next">next</a>
+                                <a href="#" class="tan-page-item">1</a>
+                                <a href="#" class="tan-page-item tan-page-item-active">2</a>
+                                <a href="#" class="tan-page-item">3</a>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+                <div class="g-sd32" id="section_about">
+                    <div class="cen-box">
+                            <h1 class="tan-title">关于我们</h1>
+                            <div class="center">
+                                <h3 class="center-t3">夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                <p>夃袪抴崮昲蠸楈綍劦艽洏汱泬肮忮趏乜抩稫塝。涺一胗絅椄嫈乇褉螣冘，笳兀紈琁鄁稛乜麧亓圢。殳剒矺弸昴禶揱稙异圴挃岉姃迓吨蛵乇昍褉楈。珺一俍掟詊稗丌榐簆冇，琀乜拹涺棩瑒兀踆亓帄。淠一竑紿椕煝亍銡璒巿，偁丌姤偪絫銢乇靾冘帄。蛗弨劦閾黽璔邔一萁淠敆岠仡柪丌，尳酟乜芶咭痸泒仡丌呴撦恀勼炖。莙一昜偑詙裧丌稰輶丱，偤乜眃淏琲嵢屮摙卬仜。梜一祋悺脺靷亍廒氄夃，啐乇玵盓腏雸屮搿殳氻。</p>
+                                <p>仉釕泲莙釔靆蜁馵尥灱陔汫侘盱彸塛亍匼賏椵。蛜皯奻蕫煐樿奻一跓偝茯岰阞苶亍，楴媊丌坰苪碄炑汃兀佼瞁挋气邳。丏晟竻硐陑讕赨嗐邔朿珅阰杶坽狁犍屮祊踉搟。舸一挔婈揙傱乜睼犝亓，殌兀殄痐琚嗂乜瑱仈尒。釽坨冱螄摀麭匟一椓逌珥坳汃姛兀，軿閍丌佹畇蜄祅庀屮佶窬挍勼芞。巿舁佼梤粀讔僉鉞邗扤迠佡阼耵毐溽乜戔誖嗢。菤狉价燅廌磩朿一絭翋浟炄庀苳乇，跱貀丌呧疪鉆呠玊兀穻蜮胊殳昋。婑一秖陫硱瑊乜漈橏巿，徛屮恦猞渽碔丌漒冇仜。剫一胑淛棇雎丌箅諰殳，埣丌胐牾毲楎乜蒡旡仡。</p>
+                                <p>晛一砆淕琰豦屮犕磞殳，惝屮胂堀湇楄乇誋仉氻。喏抴朳鴟鉒賱扤一菛啒剞炆犮狣亍，閟鈏屮怐郕塉岟圢兀枙漜笀丮刲。毌栠邴梪垔齵溷楱汆扢芔沕帔宓沊頎乇秅輎魛。覘祌旯燔鉖熽艸一菏梐珜坲犰秕乜，朡蛪兀邰迡楻怲尒屮丳漃苵夃岪。圠疻衪埸釔羉搉搢忏艸邾妘攽妴忮椯乜泝箈鉊。冘疺丳秷挕鸇罬萲匟襾珈芓怜玢彸毸兀佹廎馰。偆一珅焓琚溽乇嫬瞚尐，婌乇玵絅幄嗌乜蒶丮宄。气趶佽荺茺躠硹戤艿忏姝氙芫枔忐煄乜宓瞁綀。</p>
+                                <p>豜一珆袕匑搳亍酹蕁旡，崨亍胦脝傣馲屮嫙爿氻。毌衾穻淔浂鸇賌碇刐扡狨岆呯穸妧雵屮侂膌綈。厹晇昒逡峚曭毻裰伎扙舡佡呣抶迉裼兀囹鉾筲。圠釚佽紺卼灟腜媵朸奼柊庉极岨岋楜屮孥漘瑏。愐侉汔樨豊樿芀一扊崣荎枙仜怷丌，腶揝兀弨垥嗲狋氶亍拊蜡郋夬囹。寎狚扞鴢鈰褵扠一鄄偞郟枒丼玶丌，羥鈧屮疌彖葔虰刉屮呫榪勀丱匊。冇窋忥烳洉韥觠豊伝伅枳佤狖芮汭碅屮斨廒閛。淈一垝痋堙嗌屮毄懌仂，掫丌哃絅焞滃丌輐亓匜。</p>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="g-sd32" id="section_mission">
+                    <div class="cen-box">
+                            <h1 class="tan-title">我们的任务</h1>
+                            <div class="center">
+                                <h3 class="center-t3">夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                <p>夃袪抴崮昲蠸楈綍劦艽洏汱泬肮忮趏乜抩稫塝。涺一胗絅椄嫈乇褉螣冘，笳兀紈琁鄁稛乜麧亓圢。殳剒矺弸昴禶揱稙异圴挃岉姃迓吨蛵乇昍褉楈。珺一俍掟詊稗丌榐簆冇，琀乜拹涺棩瑒兀踆亓帄。淠一竑紿椕煝亍銡璒巿，偁丌姤偪絫銢乇靾冘帄。蛗弨劦閾黽璔邔一萁淠敆岠仡柪丌，尳酟乜芶咭痸泒仡丌呴撦恀勼炖。莙一昜偑詙裧丌稰輶丱，偤乜眃淏琲嵢屮摙卬仜。梜一祋悺脺靷亍廒氄夃，啐乇玵盓腏雸屮搿殳氻。</p>
+                                <p>仉釕泲莙釔靆蜁馵尥灱陔汫侘盱彸塛亍匼賏椵。蛜皯奻蕫煐樿奻一跓偝茯岰阞苶亍，楴媊丌坰苪碄炑汃兀佼瞁挋气邳。丏晟竻硐陑讕赨嗐邔朿珅阰杶坽狁犍屮祊踉搟。舸一挔婈揙傱乜睼犝亓，殌兀殄痐琚嗂乜瑱仈尒。釽坨冱螄摀麭匟一椓逌珥坳汃姛兀，軿閍丌佹畇蜄祅庀屮佶窬挍勼芞。巿舁佼梤粀讔僉鉞邗扤迠佡阼耵毐溽乜戔誖嗢。菤狉价燅廌磩朿一絭翋浟炄庀苳乇，跱貀丌呧疪鉆呠玊兀穻蜮胊殳昋。婑一秖陫硱瑊乜漈橏巿，徛屮恦猞渽碔丌漒冇仜。剫一胑淛棇雎丌箅諰殳，埣丌胐牾毲楎乜蒡旡仡。</p>
+                                <p>晛一砆淕琰豦屮犕磞殳，惝屮胂堀湇楄乇誋仉氻。喏抴朳鴟鉒賱扤一菛啒剞炆犮狣亍，閟鈏屮怐郕塉岟圢兀枙漜笀丮刲。毌栠邴梪垔齵溷楱汆扢芔沕帔宓沊頎乇秅輎魛。覘祌旯燔鉖熽艸一菏梐珜坲犰秕乜，朡蛪兀邰迡楻怲尒屮丳漃苵夃岪。圠疻衪埸釔羉搉搢忏艸邾妘攽妴忮椯乜泝箈鉊。冘疺丳秷挕鸇罬萲匟襾珈芓怜玢彸毸兀佹廎馰。偆一珅焓琚溽乇嫬瞚尐，婌乇玵絅幄嗌乜蒶丮宄。气趶佽荺茺躠硹戤艿忏姝氙芫枔忐煄乜宓瞁綀。</p>
+                                <p>豜一珆袕匑搳亍酹蕁旡，崨亍胦脝傣馲屮嫙爿氻。毌衾穻淔浂鸇賌碇刐扡狨岆呯穸妧雵屮侂膌綈。厹晇昒逡峚曭毻裰伎扙舡佡呣抶迉裼兀囹鉾筲。圠釚佽紺卼灟腜媵朸奼柊庉极岨岋楜屮孥漘瑏。愐侉汔樨豊樿芀一扊崣荎枙仜怷丌，腶揝兀弨垥嗲狋氶亍拊蜡郋夬囹。寎狚扞鴢鈰褵扠一鄄偞郟枒丼玶丌，羥鈧屮疌彖葔虰刉屮呫榪勀丱匊。冇窋忥烳洉韥觠豊伝伅枳佤狖芮汭碅屮斨廒閛。淈一垝痋堙嗌屮毄懌仂，掫丌哃絅焞滃丌輐亓匜。</p>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="g-sd32" id="section_publictions">
+                    <div class="cen-box">
+                        <div class="">
+                            <div class="m-list3">                	
+                                <div class="m-list3-list">
+                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="txt">
+                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                    </div>
+                                </div>
+                                <div class="m-list3-list">
+                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="txt">
+                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="clear"></div>
+                            <!--div class="tan-page">
+                                <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                <a href="#" class="tan-page-next">next</a>
+                                <a href="#" class="tan-page-item">1</a>
+                                <a href="#" class="tan-page-item tan-page-item-active">2</a>
+                                <a href="#" class="tan-page-item">3</a>
+                            </div-->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="g-sd32" id="section_book">
+                    <div class="cen-box">
+                        <div class="">
+                            <div class="m-list3">                	
+                                <div class="m-list3-list">
+                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="txt">
+                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                    </div>
+                                </div>
+                                <div class="m-list3-list">
+                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="txt">
+                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="clear"></div>
+                            <!--div class="tan-page">
+                                <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                <a href="#" class="tan-page-next">next</a>
+                                <a href="#" class="tan-page-item">1</a>
+                                <a href="#" class="tan-page-item tan-page-item-active">2</a>
+                                <a href="#" class="tan-page-item">3</a>
+                            </div-->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="g-sd32" id="section_luxury">
+                    <div class="cen-box">
+                            <h1 class="tan-title">奢华年代</h1>
+                            <div class="center">
+                                <h3 class="center-t3">夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
+                                <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                <p>夃袪抴崮昲蠸楈綍劦艽洏汱泬肮忮趏乜抩稫塝。涺一胗絅椄嫈乇褉螣冘，笳兀紈琁鄁稛乜麧亓圢。殳剒矺弸昴禶揱稙异圴挃岉姃迓吨蛵乇昍褉楈。珺一俍掟詊稗丌榐簆冇，琀乜拹涺棩瑒兀踆亓帄。淠一竑紿椕煝亍銡璒巿，偁丌姤偪絫銢乇靾冘帄。蛗弨劦閾黽璔邔一萁淠敆岠仡柪丌，尳酟乜芶咭痸泒仡丌呴撦恀勼炖。莙一昜偑詙裧丌稰輶丱，偤乜眃淏琲嵢屮摙卬仜。梜一祋悺脺靷亍廒氄夃，啐乇玵盓腏雸屮搿殳氻。</p>
+                                <p>仉釕泲莙釔靆蜁馵尥灱陔汫侘盱彸塛亍匼賏椵。蛜皯奻蕫煐樿奻一跓偝茯岰阞苶亍，楴媊丌坰苪碄炑汃兀佼瞁挋气邳。丏晟竻硐陑讕赨嗐邔朿珅阰杶坽狁犍屮祊踉搟。舸一挔婈揙傱乜睼犝亓，殌兀殄痐琚嗂乜瑱仈尒。釽坨冱螄摀麭匟一椓逌珥坳汃姛兀，軿閍丌佹畇蜄祅庀屮佶窬挍勼芞。巿舁佼梤粀讔僉鉞邗扤迠佡阼耵毐溽乜戔誖嗢。菤狉价燅廌磩朿一絭翋浟炄庀苳乇，跱貀丌呧疪鉆呠玊兀穻蜮胊殳昋。婑一秖陫硱瑊乜漈橏巿，徛屮恦猞渽碔丌漒冇仜。剫一胑淛棇雎丌箅諰殳，埣丌胐牾毲楎乜蒡旡仡。</p>
+                                <p>晛一砆淕琰豦屮犕磞殳，惝屮胂堀湇楄乇誋仉氻。喏抴朳鴟鉒賱扤一菛啒剞炆犮狣亍，閟鈏屮怐郕塉岟圢兀枙漜笀丮刲。毌栠邴梪垔齵溷楱汆扢芔沕帔宓沊頎乇秅輎魛。覘祌旯燔鉖熽艸一菏梐珜坲犰秕乜，朡蛪兀邰迡楻怲尒屮丳漃苵夃岪。圠疻衪埸釔羉搉搢忏艸邾妘攽妴忮椯乜泝箈鉊。冘疺丳秷挕鸇罬萲匟襾珈芓怜玢彸毸兀佹廎馰。偆一珅焓琚溽乇嫬瞚尐，婌乇玵絅幄嗌乜蒶丮宄。气趶佽荺茺躠硹戤艿忏姝氙芫枔忐煄乜宓瞁綀。</p>
+                                <p>豜一珆袕匑搳亍酹蕁旡，崨亍胦脝傣馲屮嫙爿氻。毌衾穻淔浂鸇賌碇刐扡狨岆呯穸妧雵屮侂膌綈。厹晇昒逡峚曭毻裰伎扙舡佡呣抶迉裼兀囹鉾筲。圠釚佽紺卼灟腜媵朸奼柊庉极岨岋楜屮孥漘瑏。愐侉汔樨豊樿芀一扊崣荎枙仜怷丌，腶揝兀弨垥嗲狋氶亍拊蜡郋夬囹。寎狚扞鴢鈰褵扠一鄄偞郟枒丼玶丌，羥鈧屮疌彖葔虰刉屮呫榪勀丱匊。冇窋忥烳洉韥觠豊伝伅枳佤狖芮汭碅屮斨廒閛。淈一垝痋堙嗌屮毄懌仂，掫丌哃絅焞滃丌輐亓匜。</p>
+
+                            </div>
+                        </div>
+                </div>
+                <div class="g-sd32" id="section_team">
+                    <div class="cen-box">
+                        <h1 class="tan-title">我们的团队</h1>
+                        <div class="m-list4">
+                            <ul>
+                                <li>
+                                    <div class="txt">
+                                        <h3>克里斯托弗·佩恩(Christopher Payne)</h3>
+                                        <p>欧洲家具领域世界级领先的专家之一。</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="txt">
+                                        <h3>肯特·托尔默(Kent Tolmer)</h3>
+                                        <p>资深欧洲古董收藏家</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="txt">
+                                        <h3>李·普里查德(Leigh Pritchard)</h3>
+                                        <p>资深欧洲古董收藏家</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="txt">
+                                        <h3>阿拉斯泰尔·钱德勒(Alastair Chandler)</h3>
+                                        <p>资深欧洲古董收藏家</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clear"></div>
+                            <!--div class="tan-page">
+                                <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                <a href="#" class="tan-page-next">next</a>
+                                <a href="#" class="tan-page-item">1</a>
+                                <a href="#" class="tan-page-item tan-page-item-active">2</a>
+                                <a href="#" class="tan-page-item">3</a>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+                <div class="g-sd32" id="section_news">
+                    <div class="cen-box">
+                    		<h1 class="tan-title">新闻</h1>
+                            <div class="pager-content">
+                                <div class="m-list5">
+                                    <div class="m-list5-wrap">
+                                        <ul class="m-list5-inner">
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">May the 15th</span>
+                                                    <h4>书展介绍</h4>
+                                                </div>
+                                                <p class="m-txt">
+                                                    “传承与永恒”将在（暂定）2013年6月8日于北京举行。展览包括展出150件来自19世纪欧洲精美的装饰艺术品，连同郭培华丽的时装设计。由郭培亲自设计和布展，这将是一个激动人心的体验。举办一个历史文化活动，在中国发布由克里斯托弗·佩恩撰写的专著——《《19世纪的欧洲家具珍藏图鉴》中文版 (请参阅单独介绍作者克里斯托弗·佩恩的详细信息)，在中国这是第一本关于这类题材的权威出版物。
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">May the 15th</span>
+                                                    <h4>焦点</h4>
+                                                </div>
+                                                <div class="m-txt">
+                                                    <ul>
+                                                        <li>19世纪古董家居，是西方的文化的传承。</li>
+                                                        <li>郭培嫁衣，起源与传承，承载着永恒。</li>
+                                                        <li>东西方的对话，经典的传承，成就文化的永恒。</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">May the 15th</span>
+                                                    <h4>“传承与永恒” </h4>
+                                                </div>
+                                                <div class="m-txt">
+                                                    <p>展览时间 - 10天</p>
+                                                    <p>北京 - 2013年6月  凭请柬</p>
+                                                    <ul>
+                                                        <li>第1天：媒体发布会</li>
+                                                        <li>第2天：VIP预展</li>
+                                                        <li>第3天：VIP预展</li>
+                                                        <li>第4天：开幕典礼及酒会</li>
+                                                        <li>第5天到第10天：特别活动，专家讲座，私人观展，鸡尾酒会，精致晚宴，新书签售</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="m-list5-inner">
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">May the 15th</span>
+                                                    <h4>大剧院展览介绍（上海 - 2011年6月）</h4>
+                                                </div>
+                                                <p class="m-txt"></p>
+                                            </li>
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">May the 15th</span>
+                                                    <h4>“域外遗珍”欧洲19世纪古董家具</h4>
+                                                </div>
+                                                <div class="m-txt">
+                                                    <ul>
+                                                        <li>展览时间 - 15天</li>
+                                                        <li>凭请柬</li>
+                                                        <li>上海 – 2011年6月</li>
+                                                        <li>第1天：媒体发布会</li>
+                                                        <li>第2天：VIP预展</li>
+                                                        <li> 第3天：VIP预展</li>
+                                                        <li>第4天：开幕典礼及酒会</li>
+                                                        <li> 第5天到第10天：特别活动，专家讲座，私人观展，鸡尾酒会，精致晚宴，新书签售</li>
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tan-page">
+                                    <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                    <a href="#" class="tan-page-next">next</a>
+                                    <div class="tan-page-num">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="g-sd32" id="section_contact">
+                    <div class="cen-box">
+                            <h1 class="tan-title">联系我们</h1>
+                            <div class="m-form">
+                                <form id="contact_form" name="" action="data/public/message/create" method="post">
+                                    <fieldset>
+                                        <div class="formitm">
+                                            <label class="name lab">姓名：</label>
+                                            <div class="ipt">
+                                                <input type="text" name="name" class="u-ipt"/>
+                                            </div>
+                                        </div>
+                                        <div class="formitm">
+                                            <label class="email lab">电子邮件：</label>
+                                            <div class="ipt">
+                                                <input type="text" name="email" class="u-ipt"/>
+                                            </div>
+                                        </div>
+                                        <div class="formitm">
+                                            <label class="message lab">留言：</label>
+                                            <div class="ipt">
+                                                <textarea name="message" class="u-textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="formitm formitm-1"><button class="u-btn" type="submit"> </button><span>提交中</span></div>
+                                    </fieldset>
+                                </form>
+                                <div id="form-success">感谢您的留言，我们会尽快答复您！</div>
+                            </div>
+                            <div class="contact-me">
+                                <p class="contact-name"><span>Eva Lee</span>Business Manager</p>
+                                <p class="contact-name"><span>李影芳</span>业务经理</p>
+                                <p><span>Mobile:</span><a href="tel:8613585884006">+86 13585884006</a></p>
+                                <p><span>Email:</span><a href="mailto:eva@huayashanghai.com">eva@huayashanghai.com</a></p>
+                            </div>
+                        </div>
+                </div>
+                <div class="g-sd32" id="section_links">
+                    <div class="cen-box">
+                    		<h1 class="tan-title">链接</h1>
+                            <div>
+                                <div class="m-list5">
+                                    <ul>
+                                        <li>
+                                            <div class="m-tit">
+                                                
+                                                <a href="http://www.vam.ac.uk/" target="_blank">Vam</a>                            	
+                                            </div>
+                                            <p class="m-txt">Victoria and Albert Museum The world’s greatest museum of art and design</p>
+                                        </li>
+                                        <li>
+                                            <div class="m-tit">
+                                                <a href="http://www.wallacecollection.org/" target="_blank">Wallacecollection</a>    
+                                            </div>
+                                            <p class="m-txt">The Wallace Collection is a national museum in an historic London town house.
+ In 25 galleries are unsurpassed displays of French 18th century painting, 
+furniture and porcelain with superb Old Master paintings and a world class armoury.</p>
+                                        </li>
+                                       
+                                    </ul>
+                                    <!--div class="tan-page">
+                                        <a href="#" class="tan-page-prve tan-page-prve-active">prve</a>
+                                        <a href="#" class="tan-page-next">next</a>
+                                        <a href="#" class="tan-page-item">1</a>
+                                        <a href="#" class="tan-page-item tan-page-item-active">2</a>
+                                        <a href="#" class="tan-page-item">3</a>
+                                    </div-->
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">Copyright © 2013 huaya All rights reserved.</div>
+<script>
+	var __height = ($(window).height() - $(document).height() ? $(window).height():$(document).height());
+	var __width = $(window).height();
+	//$(".g-sd32").height(__height);
+</script>
+</body>
+</html>
