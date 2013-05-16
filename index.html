@@ -170,12 +170,13 @@
       }
     });
 
-    $('.popup_team').fancybox({
+    $('.popup_news').fancybox({
         scrolling : false,
         minWidth: 400,
-        maxWidth: 800,
+        maxWidth: 1000,
         padding: 30,
         type: 'ajax',
+        scrolling: 'auto',
         helpers: {
             overlay : {
                 closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
@@ -188,6 +189,26 @@
             }
         }
     });
+
+      $('.popup_team').fancybox({
+          scrolling : false,
+          minWidth: 400,
+          maxWidth: 600,
+          padding: 30,
+          type: 'ajax',
+          scrolling: 'auto',
+          helpers: {
+              overlay : {
+                  closeClick : true,  // if true, fancyBox will be closed when user clicks on the overlay
+                  speedOut   : 200,   // duration of fadeOut animation
+                  showEarly  : true,  // indicates if should be opened immediately or wait until the content is ready
+                  locked     : false   // if true, the content will be locked into overlay
+              },
+              title : {
+                  type : 'float' // 'float', 'inside', 'outside' or 'over'
+              }
+          }
+      });
 
     $('.about-imgs a').fancybox({
       scrolling : false,
@@ -239,10 +260,18 @@
                             <div class="m-list3">                	
                                 <div class="f-cb m-list3-box" id="slides">
                                     <div class="m-list3-list">
-                                        <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                        <div class="u-img2"><a class="popup_team" href="book/2.html"><img src="pic/book/cover1.png" alt="" class="reflect" /></a></div>
                                         <div class="txt">
-                                            <h3>19世纪的欧洲家具珍藏图鉴</h3>
-                                            <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                            <h3><a class="popup_team" href="book/2.html">19世纪的欧洲家具珍藏图鉴</a></h3>
+                                            <p>这是一本在19世纪欧洲家具领域被公认为是权
+                                                威之作的专著。多年来，它被世界各地的西方古董
+                                                家具商视为是一本极具价值的参考书， 而且往往
+                                                被认为是这一领域的“圣经”。
+                                                数百年来，中国制作的家具被西方世界的许多
+                                                爱好者和藏家广泛收集和珍藏。中国和西方的家具
+                                                和艺术品的顶级珍品在英国、美国和欧洲各地都有
+                                                收藏。</p>
+
                                         </div>
                                     </div>
                                     <!--div class="m-list3-list">
@@ -269,14 +298,14 @@
                                 <ul>
                                     <li>
                                         <div class="m-tit">
-                                            <span class="m-time">May the 12th</span>
-                                            <h4>《19世纪的欧洲家具珍藏图鉴》中文版的面世</h4>
+                                            <span class="m-time">2013年5月</span>
+                                            <h4><a class="popup_team" href="book/2.html">《19世纪的欧洲家具珍藏图鉴》中文版的面世</a></h4>
                                         </div>
-                                        <p class="m-txt">本书的参考价值</p>
+                                        <p class="m-txt">这是一本在19世纪欧洲家具领域被公认为是权 威之作的专著。多年来，它被世界各地的西方古董 家具商视为是一本极具价值的参考书， 而且往往 被认为是这一领域的“圣经”。 数百年来，中国制作的家具被西方世界的许多 爱好者和藏家广泛收集和珍藏。中国和西方的家具 和艺术品的顶级珍品在英国、美国和欧洲各地都有 收藏。</p>
                                     </li>
                                     <li>
                                         <div class="m-tit">
-                                            <span class="m-time">May the 12th</span>
+                                            <span class="m-time">2013年5月</span>
                                             <h4>“传承与永恒”将在（暂定）2013年6月8日于北京举行</h4>
                                         </div>
                                         <p class="m-txt">“传承与永恒”将在（暂定）2013年6月8日于北京举行。展览包括展出150件来自19世纪欧洲精美的装饰艺术品，连同郭培华丽的时装设计。由郭培亲自设计和布展，这将是一个激动人心的体验。举办一个历史文化活动，在中国发布由克里斯托弗·佩恩撰写的专著——《《19世纪的欧洲家具珍藏图鉴》中文版 (请参阅单独介绍作者克里斯托弗·佩恩的详细信息)，在中国这是第一本关于这类题材的权威出版物。 </p>
@@ -302,8 +331,8 @@
                                 <p>我们在中国的使命是倾心打造世界一流品质的奢华高雅生活方式，提供高级精致的欧洲古董：钟、家具和艺术品。目前在国内能接触到这类高水平的渠道还不多，我们希望为那些注重生活品位的藏家，追求艺术之美的同时拥有财富升值，享受最顶级的欧洲文化和生活风格。</p>
 
                                 <p>1.	专著出版物和专家讲座授课：我们将出版两本非常重要，克里斯多夫•佩恩关于欧洲家具的专著（中文版）。<br/>
-                                《尊享岁月－1 9 世纪欧洲家具珍藏》（链接新书页面）<br/>
-                                《奢华年代:1930-1930欧洲古典家具艺术》（链接书的介绍页面）</p>
+                                    <a class="popup_team" href="book/2.html">《尊享岁月－1 9 世纪欧洲家具珍藏》</a><br/>
+                                    <a class="popup_team" href="book/1.html">《奢华年代:1930-1930欧洲古典家具艺术》</a></p>
 
                                 <p>2．展览活动：本公司举办过多个独家精品展览，联合全国各地以及世界组织机构参与的文化的交流活动，包括邀请专家和专业人士的演讲，学术专题讲座和论坛。仅限受邀的嘉宾可以欣赏华美精致的钟表展示以及家具和艺术作品的视觉盛宴，我们称之为“奢华年代”1830年至1930年欧洲古董家具展。</p>
 
@@ -323,6 +352,16 @@
                             <div class="center">
                                 <p>我们全心专注于1830年-1930年制作的欧洲古董与装饰艺术品。我们臻致的藏品包括: 欧洲古董钟, 家具和装饰艺术品, 精选于全球范围的私人收藏。拥有着超过四十年的收藏经验, 同时在全球建立起了丰厚的采购、展览和零售的资源。我们拥有的大部分藏品原产自法国和英国, 采用高品质材料, 出自技艺超卓的手艺工匠。部分藏品更是出自当时最著名的制造商, 如林克, 达颂和米利特, 他们都是为整个欧洲的皇室贵族提供专门定制的制造商。</p>
                                 <p>我们在中国的使命是倾心打造世界一流品质的奢华高雅生活方式，提供高级精致的欧洲古董：钟、家具和艺术品。目前在国内能接触到这类高水平的渠道还不多，我们希望为那些注重生活品位的藏家，追求艺术之美的同时拥有财富升值，享受最顶级的欧洲文化和生活风格。</p>
+
+                                <p>1.	专著出版物和专家讲座授课：我们将出版两本非常重要，克里斯多夫•佩恩关于欧洲家具的专著（中文版）。<br/>
+                                    <a class="popup_team" href="book/2.html">《尊享岁月－1 9 世纪欧洲家具珍藏》</a><br/>
+                                    <a class="popup_team" href="book/1.html">《奢华年代:1930-1930欧洲古典家具艺术》</a></p>
+
+                                <p>2．展览活动：本公司举办过多个独家精品展览，联合全国各地以及世界组织机构参与的文化的交流活动，包括邀请专家和专业人士的演讲，学术专题讲座和论坛。仅限受邀的嘉宾可以欣赏华美精致的钟表展示以及家具和艺术作品的视觉盛宴，我们称之为“奢华年代”1830年至1930年欧洲古董家具展。</p>
+
+                                <p>3.专家建议和私人顾问服务：我们可以根据您的需要提供专业的建议和顾问服务。</p>
+
+                                <p>4.购买服务：我们可以为您做指定的购买服务，根据您的设计要求，情况和预算，在全球范围采购指定的藏品。</p>
                             </div>
                     </div>
                 </div>
@@ -331,21 +370,24 @@
                     <div class="cen-box">
                         <div class="">
                             <div class="m-list3">                	
+
                                 <div class="m-list3-list">
-                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="u-img2"><a class="popup_team" href="book/2.html"><img src="pic/book/cover1.png" alt="" class="reflect" /></a></div>
                                     <div class="txt">
-                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
-                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                        <h3><a class="popup_team" href="book/2.html">尊享岁月－1 9 世纪欧洲家具珍藏 </a></h3>
+                                        <p>这是一本在19世纪欧洲家具领域被公认为是权 威之作的专著。多年来，它被世界各地的西方古董 家具商视为是一本极具价值的参考书， 而且往往 被认为是这一领域的“圣经”。</p>
+                                        <p>数百年来，中国制作的家具被西方世界的许多 爱好者和藏家广泛收集和珍藏。中国和西方的家具 和艺术品的顶级珍品在英国、美国和欧洲各地都有 收藏。</p>
+                                        <p>在当代中国，相比其他领域的热门收藏，西方 家具和艺术品的价值尚未为人们所认识，收藏者更 是屈指可数。</p>
                                     </div>
                                 </div>
                                 <div class="m-list3-list">
-                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="u-img2"><a class="popup_team" href="book/1.html"><img src="pic/book/cover2.png" alt="" class="reflect" /></a></div>
                                     <div class="txt">
-                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
-                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                        <h3><a class="popup_team" href="book/1.html">奢华年代:1930-1930欧洲古典家具艺术</a></h3>
+                                        <p>《奢华年代:1930-1930欧洲古典家具艺术》的标题对1830年至1930年期间西方的家具和装饰艺术作了一个完美的诠释。这期间的家具品质极高，往往优胜于欧洲18世纪专为皇室进贡的家具。在19世纪，法式家具就开始引领世界时尚潮流，直至今日，它依然风靡全球。</p>
+                                        <p>编者克里斯托弗•佩恩从自己的第一本关于十九世纪家具的权威著作《EUROPEAN FURNITURE OF THE 19TH CENTURY》古董收藏家俱乐部出版，1981年，摘录了第14-18页的介绍，并引用到此书。虽然那些文字是编制30年前的印迹，内容依然非常适用于此书。30年后，编者积累了更多关于那些赏心悦目的家具的丰厚经验，并放入本书中主要的家具说明加以扩展，详细诠释。</p>
                                     </div>
                                 </div>
-                                
                             </div>
                             <div class="clear"></div>
                             <!--div class="tan-page">
@@ -362,19 +404,22 @@
                 <div class="g-sd32" id="section_book">
                     <div class="cen-box">
                         <div class="">
-                            <div class="m-list3">                	
+                            <div class="m-list3">
                                 <div class="m-list3-list">
-                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="u-img2"><a class="popup_team" href="book/2.html"><img src="pic/book/cover1.png" alt="" class="reflect" /></a></div>
                                     <div class="txt">
-                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
-                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                        <h3><a class="popup_team" href="book/2.html">尊享岁月－1 9 世纪欧洲家具珍藏 </a></h3>
+                                        <p>这是一本在19世纪欧洲家具领域被公认为是权 威之作的专著。多年来，它被世界各地的西方古董 家具商视为是一本极具价值的参考书， 而且往往 被认为是这一领域的“圣经”。</p>
+                                        <p>数百年来，中国制作的家具被西方世界的许多 爱好者和藏家广泛收集和珍藏。中国和西方的家具 和艺术品的顶级珍品在英国、美国和欧洲各地都有 收藏。</p>
+                                        <p>在当代中国，相比其他领域的热门收藏，西方 家具和艺术品的价值尚未为人们所认识，收藏者更 是屈指可数。</p>
                                     </div>
                                 </div>
                                 <div class="m-list3-list">
-                                    <div class="u-img2"><a href="#"><img src="img/1.png" alt="" class="reflect" /></a></div>
+                                    <div class="u-img2"><a class="popup_team" href="book/1.html"><img src="pic/book/cover2.png" alt="" class="reflect" /></a></div>
                                     <div class="txt">
-                                        <h3>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋</h3>
-                                        <p>夃栫怌秶姶醾猻鄔彴巟柊卣芶冞邟塤丌姈酹豋。丮茥侄珵垚禶搦萲劦汔巹抔沰矻忤煇丌岬滶葄。閈一庣谻揌隓丌潎鴥冘，紻亍郋秸湥罬兀蒬旡尒。亓貤抳梋俔韥塤瑐朹汋茺汳抶枘忐暋乜怚毾椻。夃蚨枃猗姷鱦嗩僉伎伢柣夆沴迍岏痯兀矼漒搨。絧炑犴骹猻鴠伄一鈂觙窉玤玊洑屮，蒍酢乇祊陏瓡弣氿屮礿嫮昫气抰。埮一笀欷嵎鉒丌瑲餤气，逋乜狤桮琲鉔丌瞅殳肊。巿紓疘掔迠豅睩谼朾屻氡忯呤迗甹綈兀佌褋剻。</p>
+                                        <h3><a class="popup_team" href="book/1.html">奢华年代:1930-1930欧洲古典家具艺术</a></h3>
+                                        <p>《奢华年代:1930-1930欧洲古典家具艺术》的标题对1830年至1930年期间西方的家具和装饰艺术作了一个完美的诠释。这期间的家具品质极高，往往优胜于欧洲18世纪专为皇室进贡的家具。在19世纪，法式家具就开始引领世界时尚潮流，直至今日，它依然风靡全球。</p>
+                                        <p>编者克里斯托弗•佩恩从自己的第一本关于十九世纪家具的权威著作《EUROPEAN FURNITURE OF THE 19TH CENTURY》古董收藏家俱乐部出版，1981年，摘录了第14-18页的介绍，并引用到此书。虽然那些文字是编制30年前的印迹，内容依然非常适用于此书。30年后，编者积累了更多关于那些赏心悦目的家具的丰厚经验，并放入本书中主要的家具说明加以扩展，详细诠释。</p>
                                     </div>
                                 </div>
                                 
@@ -471,7 +516,7 @@
                                         <ul class="m-list5-inner">
                                             <li>
                                                 <div class="m-tit">
-                                                    <span class="m-time">May the 15th</span>
+                                                    <span class="m-time">2013年5月</span>
                                                     <h4>书展介绍</h4>
                                                 </div>
                                                 <p class="m-txt">
@@ -480,7 +525,7 @@
                                             </li>
                                             <li>
                                                 <div class="m-tit">
-                                                    <span class="m-time">May the 15th</span>
+                                                    <span class="m-time">2013年5月</span>
                                                     <h4>焦点</h4>
                                                 </div>
                                                 <div class="m-txt">
@@ -493,7 +538,7 @@
                                             </li>
                                             <li>
                                                 <div class="m-tit">
-                                                    <span class="m-time">May the 15th</span>
+                                                    <span class="m-time">2013年5月</span>
                                                     <h4>“传承与永恒” </h4>
                                                 </div>
                                                 <div class="m-txt">
@@ -512,14 +557,21 @@
                                         <ul class="m-list5-inner">
                                             <li>
                                                 <div class="m-tit">
-                                                    <span class="m-time">May the 15th</span>
-                                                    <h4>大剧院展览介绍（上海 - 2011年6月）</h4>
+                                                    <span class="m-time">2011年6月</span>
+                                                    <h4><a class="popup_news" href="news/2011-06-10.html">大剧院展览</a></h4>
                                                 </div>
-                                                <p class="m-txt"></p>
+                                                <p class="m-txt">十九世纪欧洲古董家具艺术展2011年6月18日在上海大剧院画廊开幕。欧洲古董家具名品艺术展共展出来自英国、意大利、法国等国百余件家具精品及贵重饰物，就展品之多、品位之高、品质之精、制作之精良，在中国大陆是前所未有的。它们集中体现了十八世纪以来欧洲家具制造业的最高水平，反映出欧洲不同国家和地区多姿多彩的风格款式和艺术大师们的独特匠心。</p>
                                             </li>
                                             <li>
                                                 <div class="m-tit">
-                                                    <span class="m-time">May the 15th</span>
+                                                    <span class="m-time">2011年5月</span>
+                                                    <h4><a class="popup_news" href="news/2011-06-09.html">上海大剧院画廊将举办《十九世纪欧洲古董家具名品艺术展》</a></h4>
+                                                </div>
+                                                <p class="m-txt">上海大剧院画廊将于今年6月18日至7月3日举办《十九世纪欧洲古董家具名品艺术展》。这次鉴赏会共展出来自英国、意大利、法国等国百余件家具精品及贵重饰物，就展品之多、品位之高、品质之精、制作之精良，在中国大陆是前所未有的。它们集中体现了十八世纪以来欧洲家具制造业的最高水平，反映出欧洲不同国家和地区多姿多彩的风格款式和艺术大师们的独特匠心。尤其值得关注的是这次展出的许多作品达到博物馆藏品的级别，有的甚至是稀世珍宝，例如，展品中英国维多利亚女王温莎皇宫卧房里的御用圆桌。这件圆桌最初是成套卧室家具中的一件，是温莎城堡243房间卧室家具非常重要的一部分，这张桌子一直延续使用到爱德华七世、国王乔治五世、六世甚至现今的伊丽莎白女王二世。</p>
+                                            </li>
+                                            <li>
+                                                <div class="m-tit">
+                                                    <span class="m-time">2011年5月</span>
                                                     <h4>“域外遗珍”欧洲19世纪古董家具</h4>
                                                 </div>
                                                 <div class="m-txt">
