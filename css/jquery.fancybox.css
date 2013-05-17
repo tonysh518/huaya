@@ -88,7 +88,7 @@
 	background-position: 0 -108px;
 	opacity: 0.8;
 	cursor: pointer;
-	z-index: 8060;
+	z-index: 9999;
 }
 
 #fancybox-loading div {
